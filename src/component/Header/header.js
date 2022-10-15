@@ -32,8 +32,7 @@ const Header = () => {
         <>
           <li style={{ display: "block" }}>
             <Link to="/login">
-              Login
-              <FaSignInAlt />
+              <FaSignInAlt /> Login
             </Link>
           </li>
           <li>

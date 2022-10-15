@@ -2,15 +2,8 @@ import "./banking.scss";
 import { FaWallet, FaHandHoldingUsd, FaMoneyBill } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../../images/stbank.png";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
 
-const Banking = ({ bee, setbee }) => {
-  const { main } = useSelector((state) => state.main);
-  useEffect(() => {
-    console.log(main);
-    setbee(main.accountDetails);
-  }, []);
+const Banking = ({ bee }) => {
   return (
     <div className="main-bank-container">
       <div className="banking-box-one">

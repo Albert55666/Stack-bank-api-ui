@@ -22,7 +22,6 @@ const Dashboard = () => {
       navigate("/login");
     }
     dispath(mainP());
-    console.log(main);
   }, [user, navigate, dispath]);
 
   useEffect(() => {

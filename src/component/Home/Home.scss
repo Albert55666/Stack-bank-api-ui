@@ -1,0 +1,104 @@
+@import "../../common/colors.scss";
+
+.container {
+  height: 100vh;
+  width: 100%;
+  background-color: $bg;
+  display: flex;
+  flex-direction: column;
+}
+.div1 {
+  display: flex;
+  height: 80%;
+}
+.box1 {
+  padding: 1rem 2rem;
+  padding-top: 4rem;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+.textDiv {
+  h1 {
+    font-size: 3rem;
+    color: $ig-color;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-style: italic;
+  }
+  h2 {
+    font-size: 3rem;
+    color: $font-secondary;
+
+    line-height: 1;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  p {
+    color: rgb(32, 32, 32);
+  }
+}
+
+.logsDiv {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  button {
+    background-color: $primary-color;
+    padding: 10px 30px;
+    color: $font-primary;
+    text-transform: uppercase;
+    max-width: 60%;
+    min-width: 50%;
+    outline: none;
+    border-radius: 5px;
+    font-size: 24px;
+    border: 0;
+    box-shadow: 1px 2px 4px black;
+  }
+  button:last-child {
+    margin-top: 20px;
+  }
+}
+.box2 {
+  width: 55%;
+  height: 100%;
+  background: url("../../images/gg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.div2 {
+  display: flex;
+  height: 20%;
+  background-color: $primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  .boxA {
+    width: 13%;
+    margin: 0;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: $font-primary;
+    box-shadow: 2px 0 5px black;
+    border-radius: 4px;
+    //  padding: 10px;
+    i {
+      font-size: 30px;
+      color: $ig-color;
+    }
+    p {
+      font-size: 17px;
+      text-transform: capitalize;
+      color: $ig-color;
+      margin: 0;
+    }
+  }
+}

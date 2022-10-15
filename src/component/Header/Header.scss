@@ -1,0 +1,17 @@
+.head-Box {
+  // background-color: #dde1e7;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 40%;
+  //   margin: auto;
+}
+.head-Box ul {
+  display: block;
+}
+.head-Box ul li {
+  display: inline-block;
+}
+.head-Box .logo {
+  text-decoration: none;
+}

@@ -27,7 +27,6 @@ const Loan = () => {
   }, [other, isError, isLoading, message, navigate, dispatch, isSuccess]);
 
   const onsubmit = (data) => {
-    console.log(data);
     dispatch(loan(data));
   };
 

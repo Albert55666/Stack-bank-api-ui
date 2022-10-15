@@ -28,11 +28,10 @@ const Loginf = () => {
   }, [user, isError, isLoading, message, navigate, dispatch, isSuccess]);
 
   const onsubmit = (data) => {
-    console.log(data);
     dispatch(login(data));
   };
 
-  return ( 
+  return (
     <div className="box-main">
       <div className="box">
         <div className="header">

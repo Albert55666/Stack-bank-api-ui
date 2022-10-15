@@ -16,24 +16,21 @@ const Transfer = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // selector for the pre transfer event
   const { bank, isLoading, isError, message, isSuccess } = useSelector(
     (state) => state.bank
   );
 
-  // // useeffect for the pre transfer event
   useEffect(() => {
     if (isError) {
       toast.error(message);
     }
     if (isSuccess) {
       navigate("/transfer");
-      setName(bank.firstname);
+      setName(bank.firstname + " " + bank.lastname);
     }
     dispatch(reset());
   }, [bank, isError, isLoading, message, navigate, dispatch, isSuccess]);
 
-  // selector for the pre transfer event
   const { send, isErr, isSucc, isLoad, mess } = useSelector(
     (state) => state.send
   );
@@ -48,15 +45,11 @@ const Transfer = () => {
     dispatch(resety());
   }, [send, isErr, isLoad, mess, navigate, dispatch, isSucc]);
 
-  console.log();
-
   const onsubmit = (data) => {
-    console.log(data);
     dispatch(transfer(data));
   };
 
   return (
-    // <div className="dashboard">
     <div className="box-main ggg">
       <div className="box">
         <div className="header boxi">
@@ -73,7 +66,6 @@ const Transfer = () => {
               {...register("accountnumber", {
                 onChange: (e) => {
                   let rr = e.target.value;
-                  // console.log(rr.length);
                   if (rr.length === 11) {
                     let dd = { [e.target.name]: parseInt(e.target.value) };
                     console.log(dd);
@@ -86,8 +78,7 @@ const Transfer = () => {
             />
           </label>
           <div className="broda">
-            <span>{name}</span>
-            {/* <span>{name}</span> */}
+            <span className="nameof">{name}</span>
           </div>
           <label htmlFor="Description">
             Description:
@@ -102,7 +93,6 @@ const Transfer = () => {
         </form>
       </div>
     </div>
-    // </div>
   );
 };
 

@@ -14,21 +14,32 @@ function Home() {
             <h1> stack bank</h1>
             <h2>
               {" "}
-              financial <br /> dreams? we make <br />
+              financial dreams?
+              <br /> we make <br />
               them real{" "}
             </h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
               itaque, laudantium aliquam culpa esse nostrum adipisci minus
-              necessitatibus{" "}
+              necessitatibus
             </p>
           </div>
           <div className="logsDiv">
             <button>
-              <Link to="/login">login</Link>{" "}
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                to="/login"
+              >
+                login
+              </Link>{" "}
             </button>
             <button>
-              <Link to="/register">Register</Link>{" "}
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                to="/register"
+              >
+                Register
+              </Link>{" "}
             </button>
           </div>
         </div>

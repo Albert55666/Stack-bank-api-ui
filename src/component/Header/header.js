@@ -30,17 +30,19 @@ const Header = () => {
         </li>
       ) : (
         <>
-          <li style={{ display: "block" }}>
+          <li style={{ display: "block", textDecoration: "none" }}>
             <Link to="/login">
               <FaSignInAlt /> Login
             </Link>
           </li>
-          <li>
-            <Link style={{ display: "inline-block" }} to="/register">
-              Register
-              <FaUser />
-            </Link>
-          </li>
+
+          <Link
+            style={{ display: "block", textDecoration: "none" }}
+            to="/register"
+          >
+            Register
+            <FaUser />
+          </Link>
         </>
       )}
     </div>

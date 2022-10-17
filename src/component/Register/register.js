@@ -6,26 +6,26 @@ import { FaHome } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { registerf, reset } from "../../features/auth/authSlice";
+import { registerf, reset } from "../../features/register/regsplice";
 import "./register.scss";
 
 const Form = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user, isLoading, isError, message, isSuccess } = useSelector(
-    (state) => state.auth
+  const { isLoading, isError, message, isSuccess } = useSelector(
+    (state) => state.reg
   );
   // );
   useEffect(() => {
     if (isError) {
       toast.error(message);
     }
-    if (isSuccess || user) {
-      navigate("/dashboard");
+    if (isSuccess) {
+      navigate("/login");
     }
     dispatch(reset());
-  }, [user, isError, isLoading, message, navigate, dispatch, isSuccess]);
+  }, [isError, isLoading, message, navigate, dispatch, isSuccess]);
 
   const onsubmit = (data) => {
     dispatch(registerf(data));

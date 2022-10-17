@@ -6,6 +6,7 @@ const initialState = {
   main: "main",
   isSuccess: false,
   isLoading: false,
+  message: "",
 };
 
 //check correct  account
@@ -33,11 +34,17 @@ export const mainslice = createSlice({
   initialState,
   reducers: { reset: (state) => initialState },
   extraReducers: (builder) => {
-    builder.addCase(mainP.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.isSuccess = true;
-      state.main = action.payload;
-    });
+    builder
+      .addCase(mainP.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.main = action.payload;
+      })
+      .addCase(mainP.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.message = action.payload;
+      });
   },
 });
 

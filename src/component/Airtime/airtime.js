@@ -20,6 +20,8 @@ const Loan = () => {
       toast.error(message);
     }
     if (isSuccess) {
+      let message = other;
+      toast.success(message, { position: toast.POSITION.TOP_CENTER });
       navigate("/dashboard");
     }
     dispatch(reset());

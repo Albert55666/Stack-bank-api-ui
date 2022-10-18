@@ -2,6 +2,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
 import Home from "./component/Home/Home";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Form from "./component/Register/register";
 import Loginf from "./component/Login Page/login";
 import Dashboard from "./component/dashboard/Dashboard";
@@ -9,7 +11,6 @@ import Transfer from "./component/Transfer/transfer";
 import Header from "./component/Header/header";
 import Loan from "./component/loan/loan";
 import Airtime from "./component/Airtime/airtime";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import { Register, reset } from "./features/auth/authSlice";
 function App() {

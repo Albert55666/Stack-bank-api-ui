@@ -40,6 +40,8 @@ const Transfer = () => {
       toast.error(mess);
     }
     if (isSucc) {
+      let message = send;
+      toast.success(message, { position: toast.POSITION.TOP_CENTER });
       navigate("/dashboard");
     }
     dispatch(resety());

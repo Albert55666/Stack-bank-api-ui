@@ -13,7 +13,7 @@ const Form = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLoading, isError, message, isSuccess } = useSelector(
+  const { Reg, isLoading, isError, message, isSuccess } = useSelector(
     (state) => state.reg
   );
   // );
@@ -22,10 +22,12 @@ const Form = () => {
       toast.error(message);
     }
     if (isSuccess) {
+      let messageh = Reg.message;
+      toast.success(messageh, { position: toast.POSITION.TOP_CENTER });
       navigate("/login");
     }
     dispatch(reset());
-  }, [isError, isLoading, message, navigate, dispatch, isSuccess]);
+  }, [Reg, isError, isLoading, message, navigate, dispatch, isSuccess]);
 
   const onsubmit = (data) => {
     dispatch(registerf(data));

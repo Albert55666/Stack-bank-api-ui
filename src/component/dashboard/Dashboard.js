@@ -27,13 +27,6 @@ const Dashboard = () => {
     setbee(main.accountDetails);
   }, [main, navigate]);
 
-  // useEffect(() => {
-  //   if (isSuccess === true) {
-  //     navigate("/dashboard");
-  //   } else {
-  //     navigate("login");
-  //   }
-  // }, []);
   return (
     // <>
     <>

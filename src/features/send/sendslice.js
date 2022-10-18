@@ -3,7 +3,7 @@ import sendService from "./sendservice";
 // const bank = JSON.parse(localStorage.getItem("reciever"));
 
 const initialState = {
-  send: [],
+  send: "",
   isErr: false,
   isSucc: false,
   isLoad: false,
@@ -43,7 +43,7 @@ export const sendslice = createSlice({
       .addCase(transfer.fulfilled, (state, action) => {
         state.isLoad = false;
         state.isSucc = true;
-        state.send.push(action.payload);
+        state.send = action.payload;
       })
       .addCase(transfer.rejected, (state, action) => {
         state.isLoad = false;

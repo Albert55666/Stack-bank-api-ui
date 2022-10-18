@@ -22,7 +22,9 @@ const Loginf = () => {
     if (isError) {
       toast.error(message);
     }
-    if (isSuccess || user) {
+    if (isSuccess) {
+      let message = `welcome to stack bank ${user.name}`;
+      toast.success(message, { position: toast.POSITION.TOP_CENTER });
       navigate("/dashboard");
     }
     dispatch(reset());

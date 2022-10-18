@@ -6,6 +6,7 @@ import { FaHome } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { RotatingLines } from "react-loader-spinner";
 import { login, reset } from "../../features/auth/authSlice";
 
 const Loginf = () => {
@@ -28,7 +29,7 @@ const Loginf = () => {
       navigate("/dashboard");
     }
     dispatch(reset());
-  }, [user, isError, isLoading, message, navigate, dispatch, isSuccess]);
+  }, [user, isError, message, navigate, dispatch, isSuccess]);
 
   const onsubmit = (data) => {
     dispatch(login(data));
@@ -45,26 +46,39 @@ const Loginf = () => {
             </h1>
           </Link>
         </div>
-        <form onSubmit={handleSubmit(onsubmit)}>
-          <label htmlFor="Email">
-            Email:
-            <input
-              {...register("email", { required: "This is required" })}
-              placeholder="Email"
+        {isLoading ? (
+          <div className="demo">
+            <RotatingLines
+              strokeColor="black"
+              strokeWidth="2"
+              animationDuration="1.95"
+              width="149"
+              visible={true}
             />
-          </label>
-          <label htmlFor="Password">
-            Password:
-            <input
-              {...register("password", { required: "This is required" })}
-              placeholder="Password"
-              type="password"
-            />
-          </label>
-          <label htmlFor="">
-            <button>submit</button>
-          </label>
-        </form>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit(onsubmit)}>
+            <label htmlFor="Email">
+              Email:
+              <input
+                {...register("email", { required: "This is required" })}
+                placeholder="Email"
+              />
+            </label>
+            <label htmlFor="Password">
+              Password:
+              <input
+                {...register("password", { required: "This is required" })}
+                placeholder="Password"
+                type="password"
+              />
+            </label>
+            <label htmlFor="">
+              <button>submit</button>
+            </label>
+          </form>
+        )}
+
         <span>
           Not registered <Link to="/register">click</Link>here to register
         </span>

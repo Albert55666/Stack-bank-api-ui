@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import { Bars } from "react-loader-spinner";
 import { loan, reset } from "../../features/loan/loansplice";
 import "./loan.scss";
 
@@ -26,7 +27,7 @@ const Loan = () => {
       navigate("/dashboard");
     }
     dispatch(reset());
-  }, [other, isError, isLoading, message, navigate, dispatch, isSuccess]);
+  }, [other, isError, message, navigate, dispatch, isSuccess]);
 
   const onsubmit = (data) => {
     dispatch(loan(data));
@@ -38,19 +39,33 @@ const Loan = () => {
         <div className="header boxic">
           <p style={{ fontSize: "30px", fontWeight: "400" }}>Loan</p>
         </div>
-        <form className="formt" onSubmit={handleSubmit(onsubmit)}>
-          <label htmlFor="amount">
-            Amount:
-            <input
-              {...register("amount", { required: "This is required" })}
-              placeholder="Amount to be loaned"
+        {isLoading ? (
+          <div className="meme">
+            <Bars
+              height="80"
+              width="80"
+              color="#111"
+              ariaLabel="bars-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
             />
-          </label>
+          </div>
+        ) : (
+          <form className="formt" onSubmit={handleSubmit(onsubmit)}>
+            <label htmlFor="amount">
+              Amount:
+              <input
+                {...register("amount", { required: "This is required" })}
+                placeholder="Amount to be loaned"
+              />
+            </label>
 
-          <label htmlFor="">
-            <button>submit</button>
-          </label>
-        </form>
+            <label htmlFor="">
+              <button>submit</button>
+            </label>
+          </form>
+        )}
       </div>
     </div>
   );

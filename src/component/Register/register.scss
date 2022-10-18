@@ -78,3 +78,10 @@ input:focus {
   width: 95%;
   // border: 1px solid;
 }
+.demo {
+  display: flex;
+  height: 50%;
+  // background-color: aqua;
+  justify-content: center;
+  align-items: center;
+}

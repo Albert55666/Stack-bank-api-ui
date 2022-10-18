@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./transfer.scss";
 import { useEffect } from "react";
-
+import { LineWave, Bars } from "react-loader-spinner";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -29,7 +29,7 @@ const Transfer = () => {
       setName(bank.firstname + " " + bank.lastname);
     }
     dispatch(reset());
-  }, [bank, isError, isLoading, message, navigate, dispatch, isSuccess]);
+  }, [bank, isError, message, navigate, dispatch, isSuccess]);
 
   const { send, isErr, isSucc, isLoad, mess } = useSelector(
     (state) => state.send
@@ -45,7 +45,7 @@ const Transfer = () => {
       navigate("/dashboard");
     }
     dispatch(resety());
-  }, [send, isErr, isLoad, mess, navigate, dispatch, isSucc]);
+  }, [send, isErr, mess, navigate, dispatch, isSucc]);
 
   const onsubmit = (data) => {
     dispatch(transfer(data));
@@ -57,42 +57,71 @@ const Transfer = () => {
         <div className="header boxi">
           <p style={{ fontSize: "30px", fontWeight: "400" }}>Transfer</p>
         </div>
-        <form className="formt" onSubmit={handleSubmit(onsubmit)}>
-          <label htmlFor="amount">
-            Amount:
-            <input {...register("amount")} placeholder="amount" />
-          </label>
-          <label htmlFor="AccountNumber">
-            Acc.No:
-            <input
-              {...register("accountnumber", {
-                onChange: (e) => {
-                  let rr = e.target.value;
-                  if (rr.length === 11) {
-                    let dd = { [e.target.name]: parseInt(e.target.value) };
-                    console.log(dd);
-                    dispatch(preTransfer(dd));
-                  }
-                },
-              })}
-              placeholder="Account Number"
-              type="number"
+
+        {isLoad ? (
+          <div className="meme">
+            <Bars
+              height="80"
+              width="80"
+              color="#111"
+              ariaLabel="bars-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
             />
-          </label>
-          <div className="broda">
-            <span className="nameof">{name}</span>
           </div>
-          <label htmlFor="Description">
-            Description:
-            <input
-              {...register("message", { required: "This is required" })}
-              placeholder="Descrition"
-            />
-          </label>
-          <label htmlFor="">
-            <button>submit</button>
-          </label>
-        </form>
+        ) : (
+          <form className="formt" onSubmit={handleSubmit(onsubmit)}>
+            <label htmlFor="amount">
+              Amount:
+              <input {...register("amount")} placeholder="amount" />
+            </label>
+            <label htmlFor="AccountNumber">
+              Acc.No:
+              <input
+                {...register("accountnumber", {
+                  onChange: (e) => {
+                    let rr = e.target.value;
+                    if (rr.length === 11) {
+                      let dd = { [e.target.name]: parseInt(e.target.value) };
+                      dispatch(preTransfer(dd));
+                    }
+                  },
+                })}
+                placeholder="Account Number"
+                type="number"
+              />
+            </label>
+            {isLoading ? (
+              <LineWave
+                height="100"
+                width="100"
+                color="#111"
+                ariaLabel="line-wave"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+                firstLineColor=""
+                middleLineColor=""
+                lastLineColor=""
+              />
+            ) : (
+              <div className="broda">
+                <span className="nameof">{name}</span>
+              </div>
+            )}
+            <label htmlFor="Description">
+              Description:
+              <input
+                {...register("message", { required: "This is required" })}
+                placeholder="Descrition"
+              />
+            </label>
+            <label htmlFor="">
+              <button>submit</button>
+            </label>
+          </form>
+        )}
       </div>
     </div>
   );

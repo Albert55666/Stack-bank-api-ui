@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <div className="head-Box">
       <p>
-        <Link style={{ textDecoration: "none", color: "blue" }} to="/dashboard">
+        <Link style={{ textDecoration: "none", color: "blue" }} to="/">
           <FaHome /> Starkbank
         </Link>
       </p>

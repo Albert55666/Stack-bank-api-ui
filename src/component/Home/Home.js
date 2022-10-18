@@ -23,15 +23,14 @@ function Home() {
           <div className="textDiv">
             <h1> stack bank</h1>
             <h2>
-              {" "}
               financial dreams?
               <br /> we make <br />
-              them real{" "}
+              them real
             </h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-              itaque, laudantium aliquam culpa esse nostrum adipisci minus
-              necessitatibus
+              "With a good perspective on history, we can have a better
+              understanding of the past and present, and thus a clear vision of
+              the future."
             </p>
           </div>
           <div className="logsDiv">
@@ -41,7 +40,7 @@ function Home() {
                 to="/login"
               >
                 login
-              </Link>{" "}
+              </Link>
             </button>
             <button>
               <Link
@@ -49,27 +48,11 @@ function Home() {
                 to="/register"
               >
                 Register
-              </Link>{" "}
+              </Link>
             </button>
           </div>
         </div>
         <div className="box2"></div>
-      </div>
-      {/* div 2 */}
-      <div className="div2">
-        <div className="boxA">
-          <i class="fa-solid fa-rocket"></i>
-          <p>fast to use</p>
-        </div>
-        <div className="boxA">
-          <i className="fa-solid fa-rocket"></i> <p>fast to use</p>
-        </div>
-        <div className="boxA">
-          <i className="fa-solid fa-rocket"></i> <p>fast to use</p>
-        </div>
-        <div className="boxA">
-          <i class="fa-solid fa-rocket"></i> <p>fast to use</p>
-        </div>
       </div>
     </div>
   );

@@ -57,31 +57,32 @@ const Loginf = () => {
             />
           </div>
         ) : (
-          <form onSubmit={handleSubmit(onsubmit)}>
-            <label htmlFor="Email">
-              Email:
-              <input
-                {...register("email", { required: "This is required" })}
-                placeholder="Email"
-              />
-            </label>
-            <label htmlFor="Password">
-              Password:
-              <input
-                {...register("password", { required: "This is required" })}
-                placeholder="Password"
-                type="password"
-              />
-            </label>
-            <label htmlFor="">
-              <button>submit</button>
-            </label>
-          </form>
+          <>
+            <form onSubmit={handleSubmit(onsubmit)}>
+              <label htmlFor="Email">
+                Email:
+                <input
+                  {...register("email", { required: "This is required" })}
+                  placeholder="Email"
+                />
+              </label>
+              <label htmlFor="Password">
+                Password:
+                <input
+                  {...register("password", { required: "This is required" })}
+                  placeholder="Password"
+                  type="password"
+                />
+              </label>
+              <label htmlFor="">
+                <button>submit</button>
+              </label>
+            </form>
+            <span>
+              Not registered <Link to="/register">click</Link>here to register
+            </span>
+          </>
         )}
-
-        <span>
-          Not registered <Link to="/register">click</Link>here to register
-        </span>
       </div>
     </div>
   );

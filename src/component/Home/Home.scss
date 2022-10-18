@@ -6,6 +6,7 @@
   background-color: $bg;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .div1 {
   display: flex;
@@ -42,6 +43,8 @@
     color: rgb(32, 32, 32);
     width: 60%;
     margin: auto;
+    font-size: 20px;
+    font-style: italic;
     padding-block: 20px;
     text-align: center;
   }

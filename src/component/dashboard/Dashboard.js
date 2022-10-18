@@ -13,7 +13,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const dispath = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  const { main } = useSelector((state) => state.main);
+  const { main, isSuccess } = useSelector((state) => state.main);
 
   useEffect(() => {
     if (!user) {
@@ -25,6 +25,13 @@ const Dashboard = () => {
   useEffect(() => {
     setbee(main.accountDetails);
   }, [main, navigate]);
+
+  useEffect(() => {
+    if (isSuccess === false) {
+      localStorage.removeItem("user");
+      localStorage.removeItem("reciever");
+    }
+  }, [isSuccess]);
 
   return (
     <div className="dashboard-container">

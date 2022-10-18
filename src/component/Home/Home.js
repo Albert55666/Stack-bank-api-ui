@@ -1,11 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 import "./Home.scss";
-
-// const {register} = useForm()
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+
+  const { user } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard");
+    }
+  }, [user, navigate]);
+
   return (
     <div className="container">
       <div className="div1">

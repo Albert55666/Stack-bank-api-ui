@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import { Bars } from "react-loader-spinner";
 import { airtime, reset } from "../../features/loan/loansplice";
 
 const Loan = () => {
@@ -25,10 +26,9 @@ const Loan = () => {
       navigate("/dashboard");
     }
     dispatch(reset());
-  }, [other, isError, isLoading, message, navigate, dispatch, isSuccess]);
+  }, [other, isError, message, navigate, dispatch, isSuccess]);
 
   const onsubmit = (data) => {
-    console.log(data);
     dispatch(airtime(data));
   };
 
@@ -38,19 +38,40 @@ const Loan = () => {
         <div className="header boxi">
           <p style={{ fontSize: "30px", fontWeight: "400" }}>Buy Airtime</p>
         </div>
-        <form className="formt" onSubmit={handleSubmit(onsubmit)}>
-          <label htmlFor="amount">
-            Amount:
-            <input
-              {...register("amount", { required: "This is required" })}
-              placeholder="Amount to be loaned"
+        {isLoading ? (
+          <div className="meme">
+            <Bars
+              height="80"
+              width="80"
+              color="#111"
+              ariaLabel="bars-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
             />
-          </label>
+          </div>
+        ) : (
+          <form className="formt" onSubmit={handleSubmit(onsubmit)}>
+            <label htmlFor="amount">
+              Amount:
+              <input
+                {...register("amount", { required: "This is required" })}
+                placeholder="Airtime Amount"
+              />
+            </label>
+            <label htmlFor="Phone">
+              Phone No.:
+              <input
+                {...register("phone", { required: "This is required" })}
+                placeholder="Mobile No,"
+              />
+            </label>
 
-          <label htmlFor="">
-            <button>submit</button>
-          </label>
-        </form>
+            <label htmlFor="">
+              <button>submit</button>
+            </label>
+          </form>
+        )}
       </div>
     </div>
   );

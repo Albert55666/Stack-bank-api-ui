@@ -83,13 +83,12 @@ export const otherSplice = createSlice({
       .addCase(airtime.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.user = action.payload;
+        state.other = action.payload;
       })
       .addCase(airtime.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-        state.user = null;
       });
   },
 });
